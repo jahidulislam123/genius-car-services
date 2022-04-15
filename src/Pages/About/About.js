@@ -1,9 +1,10 @@
 import React from 'react';
+import Services from '../Home/Services/Services';
 
 const About = () => {
     return (
         <div>
-            <h2>this is about part</h2>
+            <h2>this is about page </h2>
             
         </div>
     );
