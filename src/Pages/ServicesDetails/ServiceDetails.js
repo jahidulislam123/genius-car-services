@@ -9,7 +9,6 @@ const ServiceDetails = () => {
             <h3>HI tomra kemon aco </h3>
             <div className='text-center'>
                 <Link to="/checkout">
-                    hi
                     <button className='btn btn-primary'>Proceed Checkout</button>
                 </Link>
             </div>
