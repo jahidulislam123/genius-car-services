@@ -9,6 +9,7 @@ import Loading from '../../Shared/Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from 'react-helmet-async';
 
 
 const Login = () => {
@@ -61,7 +62,14 @@ const Login = () => {
             navigate ("/register");
         }
     return (
+
+     
+
+     
         <div className='container w-50 mx-auto'>
+           <Helmet>
+                <title>login-genious car service</title>
+            </Helmet>
             <h2 className='text-primary mt-2 text-center'>please loging </h2>
             <Form onSubmit={handleSubmit}>
   <Form.Group className="mb-3" controlId="formBasicEmail">
