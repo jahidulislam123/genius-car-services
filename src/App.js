@@ -13,12 +13,16 @@ import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import Cheackout from './Pages/CheackOut/CheackOut/Cheackout';
 import RequreAuth from './Pages/Login/RequirAuth/RequreAuth';
+import AddService from './Pages/AddServie/AddService';
+import ManageServices from './Pages/ManageService/ManageServices';
 
 
 function App() {
   return (
     <div >
       <Header></Header>
+      {/* <AddService></AddService> */}
+      
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/service/:servicesId' element={<ServiceDetails></ServiceDetails>}></Route>
@@ -30,6 +34,16 @@ function App() {
         <Route path="/checkout" element={
           <RequreAuth>
             <Cheackout></Cheackout>
+          </RequreAuth>
+        }></Route>
+        <Route path="/addservice" element={
+          <RequreAuth>
+            <AddService></AddService>
+          </RequreAuth>
+        }></Route>
+        <Route path="/manage" element={
+          <RequreAuth>
+            <ManageServices></ManageServices>
           </RequreAuth>
         }></Route>
       <Route path='/*' element={<NotFound></NotFound>}></Route>
