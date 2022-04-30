@@ -31,7 +31,7 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         
-        <Route path="/checkout" element={
+        <Route path="/checkout/:servicesId" element={
           <RequreAuth>
             <Cheackout></Cheackout>
           </RequreAuth>
