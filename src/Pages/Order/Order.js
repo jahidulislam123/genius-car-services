@@ -33,8 +33,13 @@ const Order = () => {
         
     },[])
     return (
-        <div>
+        <div className='w-50 mx-auto bg-light p-4 border mt-4'>
             <h3>your order {orders.length}</h3>
+            {
+                orders.map(order=><div key={order._id}>
+                    <p>{order.email} :{order.service}</p>
+                </div>)
+            }
         </div>
     );
 };
