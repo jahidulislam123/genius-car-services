@@ -37,7 +37,7 @@ const handlePlaceOrder =(event)=>{
         address: event.target.address.value,
         phone: event.target.phone.value,
     }
-    axios.post('http://localhost:5000/order',order)
+    axios.post('https://mighty-ocean-08356.herokuapp.com/order',order)
     .then(Response=>{
         const {data}=Response;
         if(data.insertedId){
