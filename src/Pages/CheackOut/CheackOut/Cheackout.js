@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import useServiceDetails from '../../../hooks/useServiceDetails';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Cheackout = () => {
     const {servicesId}=useParams();
@@ -35,6 +37,14 @@ const handlePlaceOrder =(event)=>{
         address: event.target.address.value,
         phone: event.target.phone.value,
     }
+    axios.post('http://localhost:5000/order',order)
+    .then(Response=>{
+        const {data}=Response;
+        if(data.insertedId){
+            toast('Your order is book !!!');
+            event.target.reset();
+        }
+    })
 
 }
 
@@ -43,11 +53,11 @@ const handlePlaceOrder =(event)=>{
         <div className='w-50 mx-auto'>
             <h2>Please order :{service.name}</h2>
             <form onSubmit={handlePlaceOrder} >
-                <input className='w-100 mb-2' value={user.displayName} type="text"name="name" placeholder='Name' required  readOnly disabled/>
+                <input className='w-100 mb-2' value={user?.displayName} type="text"name="name" placeholder='Name' required  readOnly disabled/>
                 <br />
-                <input className='w-100 mb-2' value={user.email} type="email"name="email" placeholder='Email' required  readOnly disabled/>
+                <input className='w-100 mb-2' value={user?.email} type="email"name="email" placeholder='Email' required  readOnly disabled/>
                 <br />
-                <input className='w-100 mb-2' value={service.name} type="text"name="service" placeholder='service' required />
+                <input className='w-100 mb-2' value={service.name} type="text"name="service" placeholder='service' required readOnly />
                 <br />
                 <input className='w-100 mb-2' type="text"name="address" placeholder='address' required />
                 <br />

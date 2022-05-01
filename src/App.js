@@ -15,6 +15,8 @@ import Cheackout from './Pages/CheackOut/CheackOut/Cheackout';
 import RequreAuth from './Pages/Login/RequirAuth/RequreAuth';
 import AddService from './Pages/AddServie/AddService';
 import ManageServices from './Pages/ManageService/ManageServices';
+import { ToastContainer } from 'react-toastify';
+import Order from './Pages/Order/Order';
 
 
 function App() {
@@ -46,13 +48,18 @@ function App() {
             <ManageServices></ManageServices>
           </RequreAuth>
         }></Route>
+        <Route path="/orders" element={
+          <RequreAuth>
+            <Order></Order>
+          </RequreAuth>
+        }></Route>
       <Route path='/*' element={<NotFound></NotFound>}></Route>
       </Routes>
      
       <Footer></Footer>
       
      
-      
+      <ToastContainer></ToastContainer>
     </div>
   );
 }
